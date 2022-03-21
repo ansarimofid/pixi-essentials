@@ -190,8 +190,28 @@ export class TransformerHandle extends Graphics
                         -radius / 2, -radius / 2,
                     ]);
                     break;
-                case 'rotator':
+                case "bottomRight":
+                case "bottomLeft":
+                case "topRight":
+                case "topLeft":
+                    this.drawRect(-radius / 2, -radius / 2, radius, radius);
+                    
+                    //Draw Scale Icon
+                    this.moveTo(radius / 4,0);
+                    this.lineTo(radius / 4, radius / 4);
+                    this.lineTo(0,radius / 4)
+        
+                    this.moveTo(-radius / 4,0);
+                    this.lineTo(-radius / 4, -radius / 4)
+                    this.lineTo(0, -radius / 4)
+                    break;
+                case "rotator":
                     this.drawCircle(0, 0, radius / Math.sqrt(2));
+                    
+                    this.arc(0, 0,radius/3, 1/2*Math.PI,  0);
+                    this.moveTo(radius/2.5, -radius/4);
+                    this.lineTo(radius/2.5, 0)
+                    this.lineTo(radius/8, 0)
                     break;
                 default:
                     this.drawRect(-radius / 2, -radius / 2, radius, radius);
